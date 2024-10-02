@@ -24,19 +24,19 @@ from typing import List, Tuple, Callable, Any
 
 # The projection functions, that give us access to certain parts of a "movie" (a tuple)
 def get_title(movie: Tuple[str, str, int, List[str]]) -> str:
-    return movie[0]
+    return movie[0] # returns title of movie
 
 
 def get_director(movie: Tuple[str, str, int, List[str]]) -> str:
-    return movie[1]
+    return movie[1] # returns director of movie
 
 
 def get_year(movie: Tuple[str, str, int, List[str]]) -> int:
-    return movie[2]
+    return movie[2] # returns year of movie
 
 
 def get_actors(movie: Tuple[str, str, int, List[str]]) -> List[str]:
-    return movie[3]
+    return movie[3] # returns actors of movie
 
 
 # Below are a set of actions. Each takes a list argument and returns a list of answers
