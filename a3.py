@@ -55,11 +55,11 @@ def title_by_year(matches: List[str]) -> List[str]:
         a list of movie titles made in the passed in year
     """
     year = int(matches[0])
-    final_list = []
+    result = []
     for movie in movie_db:
-        if(get_year(movie) == year):
-            final_list.append(movie)
-    return final_list
+        if get_year(movie) == year:
+            result.append(get_title(movie))
+    return result
 
 def title_by_year_range(matches: List[str]) -> List[str]:
     """Finds all movies made in the passed in year range
@@ -76,11 +76,11 @@ def title_by_year_range(matches: List[str]) -> List[str]:
     """
     year_start = int(matches[0])
     year_end = int(matches[1])
-    final_list = []
+    result = []
     for movie in movie_db:
-        if(get_year(movie) >= year_start & get_year(movie) <= year_end):
-            final_list.append(movie)
-    return final_list
+        if(get_year(movie) >= year_start and get_year(movie) <= year_end):
+            result.append(get_title(movie))
+    return result
 
 
 def title_before_year(matches: List[str]) -> List[str]:
@@ -95,11 +95,11 @@ def title_before_year(matches: List[str]) -> List[str]:
         pass in 1992 you won't get any movies made that year, only before)
     """
     year = int(matches[0])
-    final_list = []
+    result = []
     for movie in movie_db:
         if(get_year(movie) < year):
-            final_list.append(movie)
-    return final_list
+            result.append(get_title(movie))
+    return result
 
 
 def title_after_year(matches: List[str]) -> List[str]:
@@ -114,11 +114,11 @@ def title_after_year(matches: List[str]) -> List[str]:
         pass in 1992 you won't get any movies made that year, only after)
     """
     year = int(matches[0])
-    final_list = []
+    result = []
     for movie in movie_db:
         if(get_year(movie) > year):
-            final_list.append(movie)
-    return final_list
+            result.append(get_title(movie))
+    return result
 
 
 def director_by_title(matches: List[str]) -> List[str]:
@@ -134,7 +134,7 @@ def director_by_title(matches: List[str]) -> List[str]:
     final_list = []
     for movie in movie_db:
         if(get_director(movie) == get_director(movie_title)):
-            final_list.append(movie)
+            final_list.append(get_title(movie))
     return final_list
 
 
