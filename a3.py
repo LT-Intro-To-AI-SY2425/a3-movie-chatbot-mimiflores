@@ -131,11 +131,11 @@ def director_by_title(matches: List[str]) -> List[str]:
         a list of 1 string, the director of the movie
     """
     movie_title = matches[0]
-    final_list = []
+    result = []
     for movie in movie_db:
         if(get_director(movie) == get_director(movie_title)):
-            final_list.append(get_title(movie))
-    return final_list
+            result.append(get_title(movie))
+    return result
 
 
 def title_by_director(matches: List[str]) -> List[str]:
