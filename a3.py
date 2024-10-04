@@ -246,7 +246,15 @@ def search_pa_list(src: List[str]) -> List[str]:
         a list of answers. Will be ["I don't understand"] if it finds no matches and
         ["No answers"] if it finds a match but no answers
     """
-    pass
+    for pattern, action in pa_list:
+        if match(src, pattern):
+            result = action(src)  
+            if result:  
+                return result
+            else: 
+                return ["No answers"]
+    return ["I don't understand"]  
+    
 
 
 def query_loop() -> None:
@@ -259,8 +267,8 @@ def query_loop() -> None:
             print()
             query = input("Your query? ").replace("?", "").lower().split()
             answers = search_pa_list(query)
-            for ans in answers:
-                print(ans)
+            for answer in answers:
+                print(answer)
 
         except (KeyboardInterrupt, EOFError):
             break
