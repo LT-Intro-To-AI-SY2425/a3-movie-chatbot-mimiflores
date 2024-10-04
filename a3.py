@@ -166,7 +166,12 @@ def actors_by_title(matches: List[str]) -> List[str]:
     Returns:
         a list of actors who acted in the passed in title
     """
-    pass
+    movie_title= str(matches[0])
+    actors = []
+    for movie in movie_db:
+        if get_title(movie) == movie_title:
+            actors.extend(get_actors(movie))
+    return actors
 
 
 def year_by_title(matches: List[str]) -> List[int]:
