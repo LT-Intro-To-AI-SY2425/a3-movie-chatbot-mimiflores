@@ -248,9 +248,13 @@ def search_pa_list(src: List[str]) -> List[str]:
     """
     for pat, act in pa_list:
         val = match(pat, src)
-        if val != None: 
+        if val is not None: 
             result = act(val)
-    return result
+            if result:  
+                return result
+            else:
+                return ["No answers"]
+    return ["I don't understand"]
 
 
 def query_loop() -> None:
